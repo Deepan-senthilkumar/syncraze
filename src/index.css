@@ -1,0 +1,1173 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --primary-blue: #132880;
+  /* Deep blue from screenshot roughly */
+  --accent-blue: #64b5f6;
+  --white: #ffffff;
+  --text-color: #ffffff;
+  --font-heading: 'Poppins', sans-serif;
+  --aruna-purple: #3f0f80;
+  /* Adding based on request */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+body {
+  background-color: #132880;
+  /* Match the screenshot exact blue tone */
+  color: var(--white);
+  padding-top: 72px;
+  /* Fixed Header Height (was 80px) */
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Top Header Container */
+#top-bar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2000;
+  /* Gradient background for the "border" */
+  background: linear-gradient(45deg, #01089b, #0085ff);
+  /* The "border width" */
+  padding: 6px;
+  height: 72px;
+  /* Fixed height to prevent expansion */
+  overflow: visible;
+  /* Allow logo to overflow */
+}
+
+/* Inner wrapper to show white background inside the "border" */
+.top-header-inner {
+
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  /* display: flex; Removed to allow container to center naturally */
+  /* align-items: center; */
+}
+
+.topHeader {
+  padding: 11px;
+  margin-top: 0px !important;
+  color: #132880;
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 650;
+  font-style: normal;
+  letter-spacing: 0;
+  letter-spacing: 0;
+  text-align: center;
+  /* Center text */
+  flex-grow: 1;
+  /* Take up remaining space */
+  line-height: 1.2;
+  white-space: nowrap;
+  font-size: 40px;
+  display: flex;
+  /* Ensure it behaves as a container if needed */
+  justify-content: center;
+  /* Flex center */
+  align-items: center;
+}
+
+/* Cleanup old classes if they conflict */
+.top-header {
+  /* Removed styles handled by #top-bar now */
+  width: 100%;
+}
+
+.top-bar::after {
+  display: none;
+  /* Remove gradient border */
+}
+
+/* User Request: Change text color fully to aruna-purple */
+.products-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  color: var(--aruna-purple);
+  /* Apply globally to sidebar */
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.sidebar-header h3 {
+  color: var(--aruna-purple);
+  /* Enforce aruna-purple */
+  font-weight: 700;
+  text-transform: uppercase;
+  /* Matching image */
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.btn-clear {
+  background: none;
+  border: none;
+  color: #888;
+  /* Clear All usually lighter or keep purple? Image shows greyish */
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filter-group {
+  margin-bottom: 25px;
+}
+
+.filter-group h4 {
+  color: var(--aruna-purple);
+  /* Enforce aruna-purple */
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  /* Items often easier to read in black/grey, but user said "fully". Let's check image. Image shows items in black/dark grey. Only Headers are Purple. "Change THIS SECTION TEXT COLOR fully". I will set headers to aruna-purple. */
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+/* Selected/Active Item style from image */
+.filter-group label.active,
+.filter-group label:hover {
+  background-color: #f3e5f5;
+  /* Light purple distinctive bg */
+  color: var(--aruna-purple);
+  font-weight: 600;
+  border-left: 4px solid var(--aruna-purple);
+}
+
+.filter-group input {
+  margin-right: 10px;
+  accent-color: var(--aruna-purple);
+  /* Purple for checkboxes */
+}
+
+.top-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Explicitly align items to the left */
+  padding-left: 0;
+  /* Remove padding for the logo */
+}
+
+a.top-bar__logo {
+  flex-shrink: 0;
+  margin-right: 20px;
+  /* Space between logo and text */
+}
+
+a.top-bar__logo img {
+  width: auto !important;
+  height: 100px !important;
+  max-width: none !important;
+  position: relative;
+  z-index: 2001;
+  /* Ensure above other elements */
+}
+
+/* Ensure Text takes available space to center itself if desired */
+/* ... */
+
+/* User Request: General Img Styles */
+img {
+  width: 60px !important;
+}
+
+.top-logo {
+  height: 90px;
+  background: white;
+  /* Optional: logo might need a backing if it's dark text, keeping as is for now or adding bg */
+  padding: 5px;
+  /* Added padding if we add bg */
+  border-radius: 4px;
+}
+
+.quote {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  color: #ffffff;
+  /* Changed to white for contrast on gradient */
+  text-align: right;
+  /* Align right to match image flow if needed, or center */
+  flex-grow: 1;
+  letter-spacing: 0px;
+  /* Tighter letter spacing from image */
+  margin-left: 20px;
+  /* Compacting font slightly to match the condensed look if needed,
+     but keeping Poppins for consistency */
+}
+
+/* Main Nav adjustments */
+.main-nav {
+  background-color: #1a237e;
+  padding: 15px 0;
+  top: 72px;
+  /* Matches Fixed Header Height (60px logo + 12px padding) */
+  z-index: 1000;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  /* Slightly smaller/sharper */
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  color: #80d8ff;
+  /* Cyan/Light Blue highlight */
+}
+
+.nav-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 8px 25px;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0px;
+  /* Square buttons as per image */
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-live-demo {
+  background-color: #64b5f6;
+  /* Matching the light blue button */
+  color: #fff;
+  border: none;
+}
+
+.btn-live-demo:hover {
+  background-color: #42a5f5;
+}
+
+.btn-login {
+  border: 2px solid #fff;
+  /* Thicker white border */
+  color: #fff;
+  background: transparent;
+}
+
+.btn-login:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 40px 0;
+  /* Reduced from 80px */
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  /* Increased size for impact */
+  line-height: 1.3;
+  font-weight: 500;
+  /* Slightly bolder */
+  max-width: 100%;
+}
+
+.hero-visual {
+  text-align: center;
+  /* Center text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center children (video and text) relative to each other */
+  justify-content: center;
+  /* Optional: Center vertically if needed */
+}
+
+.ai-image {
+  max-width: 100%;
+  border-radius: 8px;
+  /* Optional */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  /* Optional glow */
+  margin-bottom: 20px;
+}
+
+.hero-subtext {
+  font-size: 23px;
+  font-weight: 700;
+  text-align: center;
+  /* Centered relative to the video/image container */
+  width: 100%;
+  margin-top: 0px;
+}
+
+/* Footer & Subscribe */
+.footer-section {
+  padding: 30px 0 10px;
+  /* Reduced from 50px 0 20px */
+  background-color: #132880;
+  position: relative;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* Align bottom */
+  margin-bottom: 30px;
+  /* Reduced from 50px */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  /* Reduced from 20px */
+  margin-bottom: 20px;
+
+  /* Adjust alignment */
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 2rem;
+  /* Larger icons as per screenshot */
+  background: transparent;
+  /* No background circle */
+  /* width, height, border-radius removed */
+  transition: transform 0.3s ease, opacity 0.3s;
+}
+
+.social-icons a:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.subscribe-area {
+  text-align: left;
+  max-width: 300px;
+}
+
+.subscribe-area h4 {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.subscribe-area p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.subscribe-form input {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #333;
+  background-color: #ffffff;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-blue);
+  /* Or a specific blue from screenshot if different */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  /* Ensure image fits */
+  z-index: 1001;
+  /* Ensure it's above other elements */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  /* Optional border like screenshot might implies */
+}
+
+.scroll-top img {
+  width: 50%;
+  /* Adjust size as needed based on the image content */
+  height: auto;
+  object-fit: contain;
+}
+
+/* Utilities for Inner Pages */
+.bg-blue {
+  background-color: #132880;
+}
+
+.bg-dark-blue {
+  background-color: #0b1442;
+}
+
+.bg-white {
+  background-color: #ffffff;
+  color: #132880;
+}
+
+.bg-light {
+  background-color: #f0f4f8;
+  color: #132880;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.grid-3-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.solution-card h3 {
+  color: #4ff4ff;
+  margin-bottom: 15px;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.benefit-card h3 {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* More Utilities */
+.min-h-60vh {
+  min-height: 60vh;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fixed camelCase */
+.text-muted {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.text-primary {
+  color: #132880;
+}
+
+.text-subtitle {
+  color: #a0c4ff;
+  font-size: 1.2rem;
+}
+
+.hero-title {
+  font-size: 28px;
+  /* Adjusted for longer text */
+  font-weight: 400;
+  max-width: 800px;
+  line-height: 45px;
+  margin: 0 auto 30px;
+  text-align: justify;
+  /* "front and the ending alignment should be same" */
+  text-align-last: center;
+  /* Generally looks better for quotes, but user said "same", so maybe justify-all? Let's stick to justify first or fully justify block */
+}
+
+.text-lg {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.max-w-800 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.d-block {
+  display: block;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+/* Pricing Cards */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.pricing-card {
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.card-white {
+  background: #fff;
+  color: #333;
+}
+
+.card-blue {
+  background: #6a9ae8;
+  color: #fff;
+}
+
+.card-title-blue {
+  color: #132880;
+  margin-bottom: 10px;
+}
+
+.scale-up {
+  transform: scale(1.05);
+}
+
+.price-tag {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.feature-list li {
+  margin-bottom: 10px;
+}
+
+/* About Values */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.value-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.analytics-dashboard-placeholder {
+  margin: 40px auto;
+  max-width: 800px;
+  height: 400px;
+  background: linear-gradient(45deg, #0b1442, #1a2f90);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resource-card {
+  padding: 30px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+.resource-card h3 {
+  margin-bottom: 15px;
+}
+
+/* Platform Section Styles */
+.platform-section {
+  padding: 40px 0;
+  /* Reduced from 60px to 40px for tighter layout */
+  color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  line-height: 1.13;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Digital 360 & General Blue BG */
+.digital-360,
+.capabilities,
+.mobile-app,
+.portal-preview,
+.comparison {
+  background-color: #132880;
+  /* Matching body/header blue */
+}
+
+.digital-360 .section-title {
+  color: #4ff4ff;
+  /* Bright cyan to match screenshot */
+  font-weight: 800;
+  /* Extra bold */
+}
+
+/* Connectivity - Light BG based on screenshot contrast or seamless? Screenshot looks white-ish for diagram bg actually */
+.connectivity {
+  background-color: #ffffff;
+  color: #101854;
+  /* Dark text for light bg */
+}
+
+.connectivity .section-title {
+  color: #101854;
+}
+
+/* Grid Layouts */
+.grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Capabilities */
+.capabilities .grid-2-col {
+  grid-template-columns: 2fr 1fr;
+  /* Maximize video space (approx 66%) */
+  gap: 30px;
+}
+
+.capabilities-list {
+  list-style: none;
+  margin: 30px 0;
+}
+
+.capabilities-list li {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  padding-left: 20px;
+  position: relative;
+}
+
+.capabilities-list li::before {
+  content: "•";
+  color: #fff;
+  /* White bullets */
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  /* Larger bullet */
+  line-height: 1rem;
+  top: 5px;
+}
+
+.btn-quote {
+  background: linear-gradient(to bottom, #8ec1ff, #5a9df5);
+  /* Glossy light blue gradient */
+  color: #fff;
+  border-radius: 50px;
+  /* Pill shape */
+  padding: 12px 40px;
+  box-shadow: 0 4px 15px rgba(90, 157, 245, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.btn-quote:hover {
+  background: linear-gradient(to bottom, #a0ccff, #6ba7f7);
+  transform: translateY(-2px);
+}
+
+.rounded-img {
+  border-radius: 20px;
+  max-width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile App */
+.mobile-app {
+  background-color: #000;
+  /* Match video background */
+  padding: 0 !important;
+  /* Remove padding for seamless merge */
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: -30px;
+  margin-bottom: 40px;
+  color: #a0c4ff;
+}
+
+.mobile-layout {
+  align-items: center;
+}
+
+.phone-img {
+  max-height: 500px;
+  /* Constrain phone height */
+}
+
+.center-btn {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Portal Preview */
+.banner-blue {
+  background: #6a9ae8;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-weight: 800;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  display: inline-block;
+  width: 100%;
+}
+
+.portal-desc {
+  text-align: left;
+  max-width: 100%;
+  margin: 30px 0 0;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+/* Comparison Section */
+.comparison-grid {
+  align-items: stretch;
+  /* Stretch columns to match height */
+}
+
+.col-cafm {
+  background-color: #0b1442;
+  /* Darker blue */
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #2a3b8f;
+}
+
+.col-erp {
+  background-color: #ffffff;
+  color: #101854;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.col-erp h3 {
+  color: #101854;
+}
+
+.comparison h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+/* Animation for Connectivity Overlay */
+@keyframes slideStayVanish {
+  0% {
+    left: -20%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  15% {
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  85% {
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.overlay-animate {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 55% !important;
+  /* Use important to ensure override */
+  animation: slideStayVanish 5s infinite ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-2-col {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-bar-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .quote {
+    font-size: 1rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none;
+    /* Mobile menu logic to be added */
+  }
+
+  .footer-top {
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   NEW FOOTER STYLES (Refinement V13)
+   ========================================= */
+.footer-section {
+  background-color: #1a237e;
+  /* Deep Blue base */
+  padding: 60px 0 40px;
+  color: #fff;
+  margin-top: auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Equal halves */
+  align-items: flex-end;
+  /* Align bottom */
+  margin-bottom: 50px;
+  /* Space between main area and links */
+  gap: 40px;
+}
+
+/* Social Icons (Left Half) */
+.footer-socials {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: flex-end;
+  /* Align right to meet the center line */
+}
+
+.footer-socials a {
+  color: #fff;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #4ff4ff;
+  transform: translateY(-3px);
+}
+
+/* Subscribe Area (Right) */
+.footer-subscribe {
+  text-align: left;
+  /* Internal text algin */
+  max-width: 400px;
+}
+
+.footer-subscribe h4 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  /* Regular for "for the latest..." */
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-subscribe h4 span {
+  font-weight: 800;
+  /* Bold for "Subscribe" */
+}
+
+.footer-subscribe label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  /* Slightly more space */
+  opacity: 1;
+  /* Fully visible */
+  font-weight: 500;
+}
+
+.footer-subscribe .input-group input {
+  width: 100%;
+  padding: 15px 25px;
+  /* Larger padding */
+  border-radius: 30px 0px 30px 0px;
+  /* Leaf/Bubble shape: Top-L, Top-R, Bot-R Round, Bot-L Sharp */
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  min-width: 200px;
+  background: #fff;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Footer Navigation Links (Bottom) */
+/* Footer Navigation Links (Links Row) */
+.footer-nav-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  /* Space before separator */
+}
+
+.footer-nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-nav-links a:hover {
+  color: #4ff4ff;
+}
+
+/* Footer Bottom Section (New) */
+.footer-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.legal-links {
+  display: flex;
+  gap: 30px;
+}
+
+.legal-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.legal-links a:hover {
+  color: #4ff4ff;
+}
+
+.copyright-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Scroll Top Button (Blue Circle with Arrow) */
+.scroll-top-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #132880;
+  /* Darker blue or lighter? Image shows distinct button */
+  background: rgba(255, 255, 255, 0.2);
+  /* Glassy or solid? Image shows blue circle. */
+  background: #1a237e;
+  /* Matching footer bg? Likely lighter for contrast */
+  background: #0d47a1;
+  /* Standard blue button */
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-3px);
+  background: #2962ff;
+}
+
+/* Mobile Adjustments for new Footer */
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-subscribe {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-nav-links {
+    justify-content: center;
+    gap: 20px;
+  }
+}
